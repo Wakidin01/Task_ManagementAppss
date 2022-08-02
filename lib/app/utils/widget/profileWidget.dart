@@ -57,7 +57,7 @@ class profileWidget extends StatelessWidget {
               child: Column(
                 children: const [
                   SizedBox(
-                    height: 40,
+                    height: 10,
                   ),
                   ClipRRect(
                     child: CircleAvatar(

@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'dart:html';
 import 'dart:js';
 import 'dart:ui';
@@ -6,176 +8,194 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:task_management_app/app/data/controller/auth_controller.dart';
 import 'package:task_management_app/app/utils/style/AppColors.dart';
 import 'package:task_management_app/app/utils/widget/header.dart';
 import 'package:task_management_app/app/utils/widget/myFriends.dart';
+import 'package:task_management_app/app/utils/widget/peopleYouMayKnow.dart';
 import 'package:task_management_app/app/utils/widget/sideBar.dart';
 
 import '../controllers/friends_controller.dart';
 
+// ignore: use_key_in_widget_constructors
 class FriendsView extends GetView<FriendsController> {
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
+  final AuthCon = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _drawerKey,
-      drawer: const SideBar(),
+      drawer: const SizedBox(width: 150, child: SideBar()),
       backgroundColor: AppColors.primaryBg,
-      body: Row(
-        children: [
-          !context.isPhone
-              ? const Expanded(
-                  flex: 2,
-                  child: SideBar(),
-                )
-              : const SizedBox(),
-          Expanded(
-            flex: 15,
-            child: Column(children: [
-              !context.isPhone
-                  ? const header()
-                  : Container(
-                      padding: const EdgeInsets.all(20),
-                      child: Row(
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              _drawerKey.currentState!.openDrawer();
-                            },
-                            icon: const Icon(
-                              Icons.menu,
-                              color: AppColors.primaryText,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          Column(
-                            // mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text(
-                                'Task Management',
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  color: AppColors.primaryText,
+      body: SafeArea(
+        child: Row(
+          children: [
+            !context.isPhone
+                ? const Expanded(
+                    flex: 2,
+                    child: SideBar(),
+                  )
+                : const SizedBox(),
+            Expanded(
+              flex: 15,
+              child: Column(children: [
+                !context.isPhone
+                    ? const header()
+                    : Container(
+                        padding: const EdgeInsets.all(20),
+                        child: Column(
+                          children: [
+                            Row(
+                              children: [
+                                IconButton(
+                                  onPressed: () {
+                                    _drawerKey.currentState!.openDrawer();
+                                  },
+                                  icon: const Icon(
+                                    Icons.menu,
+                                    color: AppColors.primaryText,
+                                  ),
                                 ),
-                              ),
-                              Text(
-                                'Manage task made easy with friends',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: AppColors.primaryText,
+                                const SizedBox(
+                                  width: 15,
                                 ),
-                              ),
-                            ],
-                          ),
-                          const Spacer(),
-                          const Icon(
-                            Ionicons.notifications,
-                            color: AppColors.primaryText,
-                            size: 30,
-                          ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(30),
-                            child: const CircleAvatar(
-                              backgroundColor: Colors.amber,
-                              radius: 25,
-                              foregroundImage: NetworkImage(
-                                  'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp'),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-
-              // Content / Isi Page / Screen
-              Expanded(
-                child: Container(
-                  padding: !context.isPhone
-                      ? const EdgeInsets.all(50)
-                      : const EdgeInsets.all(20),
-                  margin: !context.isPhone
-                      ? const EdgeInsets.all(20)
-                      : const EdgeInsets.all(0),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: !context.isPhone
-                        ? BorderRadius.circular(50)
-                        : BorderRadius.circular(30),
-                  ),
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Text(
-                          'People You May Know',
-                          style: TextStyle(
-                              fontSize: 30, color: AppColors.primaryText),
-                        ),
-                        SizedBox(
-                          height: 200,
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            shrinkWrap: true,
-                            clipBehavior: Clip.antiAlias,
-                            itemCount: 10,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Stack(
-                                  children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(50),
-                                      child: const Image(
-                                        image: NetworkImage(
-                                            'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp'),
+                                Column(
+                                  // mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      'Task Management',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: AppColors.primaryText,
                                       ),
                                     ),
-                                    const Positioned(
-                                      bottom: 10,
-                                      left: 50,
-                                      child: Text(
-                                        'Alicia Jasmine',
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                    ),
-                                    Positioned(
-                                      bottom: 0,
-                                      right: 0,
-                                      child: SizedBox(
-                                        height: 36,
-                                        width: 36,
-                                        child: ElevatedButton(
-                                          onPressed: () {},
-                                          style: ElevatedButton.styleFrom(
-                                            padding: EdgeInsets.zero,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(50),
-                                            ),
-                                          ),
-                                          child:
-                                              Icon(Ionicons.add_circle_outline),
-                                        ),
+                                    Text(
+                                      'Manage task made easy',
+                                      style: TextStyle(
+                                        fontSize: 14,
+                                        color: AppColors.primaryText,
                                       ),
                                     ),
                                   ],
                                 ),
-                              );
-                            },
-                          ),
+                                const Spacer(),
+                                const Icon(
+                                  Ionicons.notifications,
+                                  color: AppColors.primaryText,
+                                  size: 30,
+                                ),
+                                const SizedBox(
+                                  width: 15,
+                                ),
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(30),
+                                  child: const CircleAvatar(
+                                    backgroundColor: Colors.amber,
+                                    radius: 25,
+                                    foregroundImage: NetworkImage(
+                                        'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp'),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            context.isPhone
+                                ? TextField(
+                                    onChanged: (value) =>
+                                        AuthCon.SearchFriends(value),
+                                    controller: AuthCon.SearchFriendsController,
+                                    decoration: InputDecoration(
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      contentPadding: const EdgeInsets.only(
+                                          left: 40, right: 10),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                        borderSide: const BorderSide(
+                                            color: Colors.white),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                        borderSide: const BorderSide(
+                                          color: Colors.blue,
+                                        ),
+                                      ),
+                                      prefixIcon: const Icon(
+                                        Icons.search,
+                                        color: Colors.black,
+                                      ),
+                                      hintText: 'Search',
+                                    ),
+                                  )
+                                : const SizedBox(),
+                          ],
                         ),
-                        Myfriends(),
-                      ]),
+                      ),
+
+                // Content / Isi Page / Screen
+                Expanded(
+                  child: Container(
+                    padding: !context.isPhone
+                        ? const EdgeInsets.all(50)
+                        : const EdgeInsets.all(20),
+                    margin: !context.isPhone
+                        ? const EdgeInsets.all(20)
+                        : const EdgeInsets.all(0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: !context.isPhone
+                          ? BorderRadius.circular(50)
+                          : BorderRadius.circular(30),
+                    ),
+                    child: Obx(
+                      () => AuthCon.hasilPencarian.isEmpty
+                          ? Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                  const Text(
+                                    'People You May Know',
+                                    style: TextStyle(
+                                        fontSize: 30,
+                                        color: AppColors.primaryText),
+                                  ),
+                                  PeopleYouMayKnow(),
+                                  Myfriends(),
+                                ])
+                          : ListView.builder(
+                              padding: const EdgeInsets.all(8),
+                              shrinkWrap: true,
+                              itemCount: AuthCon.hasilPencarian.length,
+                              itemBuilder: (context, index) => ListTile(
+                                onTap: () => AuthCon.addFriends(
+                                    AuthCon.hasilPencarian[index]['email']),
+                                leading: ClipRRect(
+                                  borderRadius: BorderRadius.circular(40),
+                                  child: Image(
+                                    image: NetworkImage(
+                                        AuthCon.hasilPencarian[index]['photo']),
+                                    height: Get.width * 0.35,
+                                    width: Get.width * 0.4,
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                                title:
+                                    Text(AuthCon.hasilPencarian[index]['name']),
+                                subtitle: Text(
+                                    AuthCon.hasilPencarian[index]['email']),
+                                trailing: const Icon(Ionicons.add),
+                              ),
+                            ),
+                    ),
+                  ),
                 ),
-              ),
-            ]),
-          ),
-        ],
+              ]),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -5,10 +6,10 @@ import 'package:ionicons/ionicons.dart';
 import 'package:task_management_app/app/routes/app_pages.dart';
 import 'package:task_management_app/app/utils/style/AppColors.dart';
 
+import '../../data/controller/auth_controller.dart';
+
 class Myfriends extends StatelessWidget {
-  const Myfriends({
-    Key? key,
-  }) : super(key: key);
+  final AuthCon = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -50,30 +51,58 @@ class Myfriends extends StatelessWidget {
               ),
               SizedBox(
                 height: 400,
-                child: GridView.builder(
-                    shrinkWrap: true,
-                    itemCount: 8,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: context.isPhone ? 2 : 3,
-                        crossAxisSpacing: 20,
-                        mainAxisSpacing: 20),
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(100),
-                            child: const Image(
-                              image: NetworkImage(
-                                  'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp'),
-                            ),
-                          ),
-                          const Text(
-                            'Alicia Jasmine',
-                            style: TextStyle(color: AppColors.primaryText),
-                          ),
-                        ],
-                      );
-                    }),
+                child: StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+                  stream: AuthCon.streamFriends(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+
+                    var myFriends = (snapshot.data!.data()
+                        as Map<String, dynamic>)['emailFriends'] as List;
+
+                    return GridView.builder(
+                      shrinkWrap: true,
+                      itemCount: myFriends.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: context.isPhone ? 2 : 3,
+                          crossAxisSpacing: 20,
+                          mainAxisSpacing: 20),
+                      itemBuilder: (context, index) {
+                        return StreamBuilder<
+                                DocumentSnapshot<Map<String, dynamic>>>(
+                            stream: AuthCon.StreamUsers(myFriends[index]),
+                            builder: (context, snapshot2) {
+                              if (snapshot2.connectionState ==
+                                  ConnectionState.waiting) {
+                                return const Center(
+                                    child: CircularProgressIndicator());
+                              }
+
+                              var data = snapshot2.data!.data();
+                              return Column(
+                                children: [
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.circular(100),
+                                    child: Image(
+                                      image: NetworkImage(data!['photo']),
+                                      height: Get.width * 0.35,
+                                      width: Get.width * 0.4,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                  Text(
+                                    data['name'],
+                                    style: const TextStyle(
+                                        color: AppColors.primaryText),
+                                  ),
+                                ],
+                              );
+                            });
+                      },
+                    );
+                  },
+                ),
               )
             ],
           ),

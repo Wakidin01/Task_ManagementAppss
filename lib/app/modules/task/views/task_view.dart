@@ -157,7 +157,14 @@ class TaskView extends GetView<TaskController> {
                                                     CircularProgressIndicator());
                                           }
 
+                                          // data task
                                           var dataTask = snapshot2.data!.data();
+                                          // data user photo
+                                          var dataUserList =
+                                              (snapshot2.data!.data() as Map<
+                                                  String,
+                                                  dynamic>)['asign_to'] as List;
+
                                           return GestureDetector(
                                             onLongPress: () {
                                               // addEditTask(
@@ -181,20 +188,41 @@ class TaskView extends GetView<TaskController> {
                                                   children: [
                                                     Row(
                                                       children: [
-                                                        ClipRRect(
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(25),
-                                                          child:
-                                                              const CircleAvatar(
-                                                            backgroundColor:
-                                                                Colors.amber,
-                                                            radius: 20,
-                                                            foregroundImage:
-                                                                NetworkImage(
-                                                                    'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp'),
-                                                          ),
-                                                        ),
+                                                        ListView.builder(
+                                                            padding:
+                                                                EdgeInsets.zero,
+                                                            itemCount:
+                                                                dataUserList
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                    index) {
+                                                              return StreamBuilder<
+                                                                      DocumentSnapshot<
+                                                                          Map<String,
+                                                                              dynamic>>>(
+                                                                  stream: AuthCon
+                                                                      .StreamUsers(
+                                                                          dataUserList[
+                                                                              index]),
+                                                                  builder: (context,
+                                                                      snapshot) {
+                                                                    return ClipRRect(
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              25),
+                                                                      child:
+                                                                          const CircleAvatar(
+                                                                        backgroundColor:
+                                                                            Colors.amber,
+                                                                        radius:
+                                                                            20,
+                                                                        foregroundImage:
+                                                                            NetworkImage('https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp'),
+                                                                      ),
+                                                                    );
+                                                                  });
+                                                            }),
                                                         const Spacer(),
                                                         Container(
                                                           height: 25,

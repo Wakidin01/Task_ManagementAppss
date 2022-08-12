@@ -15,10 +15,17 @@ class upcomingTask extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Upcoming Task',
+              'Wisata Lainnya',
               style: TextStyle(
                 color: AppColors.primaryText,
                 fontSize: 30,
+              ),
+            ),
+            Text(
+              'Comming soon',
+              style: TextStyle(
+                color: AppColors.primaryText,
+                fontSize: 20,
               ),
             ),
             SizedBox(
@@ -63,19 +70,6 @@ class upcomingTask extends StatelessWidget {
                                 ),
                               ),
                               const Spacer(),
-                              Container(
-                                height: 25,
-                                width: 80,
-                                color: AppColors.primaryBg,
-                                child: const Center(
-                                  child: Text(
-                                    '100 %',
-                                    style: TextStyle(
-                                      color: AppColors.primaryText,
-                                    ),
-                                  ),
-                                ),
-                              ),
                             ],
                           ),
                           const Spacer(),
@@ -93,14 +87,14 @@ class upcomingTask extends StatelessWidget {
                             ),
                           ),
                           const Text(
-                            'Mobile Programing',
+                            'Raja Ampat',
                             style: TextStyle(
                               color: AppColors.primaryText,
                               fontSize: 20,
                             ),
                           ),
                           const Text(
-                            'Deadline 2 hari lagi',
+                            'IDR 1.500.000 / orang',
                             style: TextStyle(
                               color: AppColors.primaryText,
                               fontSize: 15,
@@ -140,19 +134,6 @@ class upcomingTask extends StatelessWidget {
                                 ),
                               ),
                               const Spacer(),
-                              Container(
-                                height: 25,
-                                width: 80,
-                                color: AppColors.primaryBg,
-                                child: const Center(
-                                  child: Text(
-                                    '100 %',
-                                    style: TextStyle(
-                                      color: AppColors.primaryText,
-                                    ),
-                                  ),
-                                ),
-                              ),
                             ],
                           ),
                           const Spacer(),
@@ -162,7 +143,7 @@ class upcomingTask extends StatelessWidget {
                             color: AppColors.primaryBg,
                             child: const Center(
                               child: Text(
-                                '10 / 10 Task',
+                                '8 / 10 Task',
                                 style: TextStyle(
                                   color: AppColors.primaryText,
                                 ),
@@ -170,14 +151,14 @@ class upcomingTask extends StatelessWidget {
                             ),
                           ),
                           const Text(
-                            'Mobile Programing',
+                            'Danau Toba',
                             style: TextStyle(
                               color: AppColors.primaryText,
                               fontSize: 20,
                             ),
                           ),
                           const Text(
-                            'Deadline 2 hari lagi',
+                            'IDR 500.000 / orang',
                             style: TextStyle(
                               color: AppColors.primaryText,
                               fontSize: 15,

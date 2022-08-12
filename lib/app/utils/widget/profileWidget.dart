@@ -7,10 +7,10 @@ import 'package:ionicons/ionicons.dart';
 import 'package:task_management_app/app/routes/app_pages.dart';
 import 'package:task_management_app/app/utils/style/AppColors.dart';
 
+import '../../data/controller/auth_controller.dart';
+
 class profileWidget extends StatelessWidget {
-  const profileWidget({
-    Key? key,
-  }) : super(key: key);
+  final authC = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +18,14 @@ class profileWidget extends StatelessWidget {
       child: !context.isPhone
           ? Row(
               children: [
-                const Expanded(
+                Expanded(
                   flex: 1,
                   child: ClipRRect(
                     child: CircleAvatar(
                       backgroundColor: Colors.amber,
                       radius: 150,
-                      foregroundImage: NetworkImage(
-                          'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp'),
+                      foregroundImage:
+                          NetworkImage(authC.auth.currentUser!.photoURL!),
                     ),
                   ),
                 ),
@@ -35,17 +35,17 @@ class profileWidget extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
-                        'Alicia Jasmine',
-                        style: TextStyle(
+                        authC.auth.currentUser!.displayName!,
+                        style: const TextStyle(
                           color: AppColors.primaryText,
                           fontSize: 40,
                         ),
                       ),
                       Text(
-                        'alicia@gmail.com',
-                        style: TextStyle(
+                        authC.auth.currentUser!.email!,
+                        style: const TextStyle(
                             color: AppColors.primaryText, fontSize: 16),
                       ),
                     ],
@@ -55,32 +55,32 @@ class profileWidget extends StatelessWidget {
             )
           : Center(
               child: Column(
-                children: const [
-                  SizedBox(
+                children: [
+                  const SizedBox(
                     height: 10,
                   ),
                   ClipRRect(
                     child: CircleAvatar(
                       backgroundColor: Colors.amber,
                       radius: 70,
-                      foregroundImage: NetworkImage(
-                          'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp'),
+                      foregroundImage:
+                          NetworkImage(authC.auth.currentUser!.photoURL!),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
-                    'Alicia Jasmine',
-                    style: TextStyle(
+                    authC.auth.currentUser!.displayName!,
+                    style: const TextStyle(
                       color: AppColors.primaryText,
                       fontSize: 18,
                     ),
                   ),
                   Text(
-                    'alicia@gmail.com',
-                    style:
-                        TextStyle(color: AppColors.primaryText, fontSize: 12),
+                    authC.auth.currentUser!.email!,
+                    style: const TextStyle(
+                        color: AppColors.primaryText, fontSize: 12),
                   ),
                 ],
               ),

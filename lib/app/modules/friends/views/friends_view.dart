@@ -65,14 +65,14 @@ class FriendsView extends GetView<FriendsController> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: const [
                                     Text(
-                                      'Task Management',
+                                      'Travel Holiday',
                                       style: TextStyle(
                                         fontSize: 20,
                                         color: AppColors.primaryText,
                                       ),
                                     ),
                                     Text(
-                                      'Manage task made easy',
+                                      'Lets Travel with ME and TOGETHER',
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: AppColors.primaryText,
@@ -95,7 +95,7 @@ class FriendsView extends GetView<FriendsController> {
                                     backgroundColor: Colors.amber,
                                     radius: 25,
                                     foregroundImage: NetworkImage(
-                                        'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp'),
+                                        'https://i0.wp.com/artforia.com/wp-content/uploads/2017/03/Pria-Tampan-di-Jepang-Harus-Bayar-Pajak-Lebih.jpg'),
                                   ),
                                 ),
                               ],
@@ -128,7 +128,7 @@ class FriendsView extends GetView<FriendsController> {
                                         Icons.search,
                                         color: Colors.black,
                                       ),
-                                      hintText: 'Search',
+                                      hintText: 'Cari',
                                     ),
                                   )
                                 : const SizedBox(),
@@ -157,7 +157,7 @@ class FriendsView extends GetView<FriendsController> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                   const Text(
-                                    'People You May Know',
+                                    'Orang yang anda kenali',
                                     style: TextStyle(
                                         fontSize: 30,
                                         color: AppColors.primaryText),

@@ -61,14 +61,14 @@ class HomeView extends GetView<HomeController> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: const [
                                 Text(
-                                  'Task Management',
+                                  'Travel Holiday',
                                   style: TextStyle(
                                     fontSize: 20,
                                     color: AppColors.primaryText,
                                   ),
                                 ),
                                 Text(
-                                  'Manage task made easy',
+                                  'Lets Travel with ME and TOGETHER',
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: AppColors.primaryText,
@@ -91,7 +91,7 @@ class HomeView extends GetView<HomeController> {
                                 backgroundColor: Colors.amber,
                                 radius: 25,
                                 foregroundImage: NetworkImage(
-                                    'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp'),
+                                    'https://i0.wp.com/artforia.com/wp-content/uploads/2017/03/Pria-Tampan-di-Jepang-Harus-Bayar-Pajak-Lebih.jpg'),
                               ),
                             ),
                           ],
@@ -122,7 +122,7 @@ class HomeView extends GetView<HomeController> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: const [
                                 Text(
-                                  'My Task',
+                                  'My Holiday',
                                   style: TextStyle(
                                     color: AppColors.primaryText,
                                     fontSize: 30,

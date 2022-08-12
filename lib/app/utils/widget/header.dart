@@ -26,14 +26,14 @@ class header extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
               Text(
-                'Task Management',
+                'Travel Holiday',
                 style: TextStyle(
                   fontSize: 22,
                   color: AppColors.primaryText,
                 ),
               ),
               Text(
-                'Manage task made easy with friends',
+                'Lets Travel with ME and TOGETHER',
                 style: TextStyle(
                   fontSize: 13,
                   color: AppColors.primaryText,
@@ -65,7 +65,7 @@ class header extends StatelessWidget {
                   Icons.search,
                   color: Colors.black,
                 ),
-                hintText: 'Search',
+                hintText: 'Cari',
               ),
             ),
           ),
@@ -83,22 +83,22 @@ class header extends StatelessWidget {
           GestureDetector(
             onTap: () {
               Get.defaultDialog(
-                title: 'Sign Out',
-                content: const Text('Are you sure want to sign out?'),
+                title: 'Logout',
+                content: const Text('Apakah anda yakin ingin logout?'),
                 cancel: ElevatedButton(
                   onPressed: () => Get.back(),
-                  child: const Text('Cancel'),
+                  child: const Text('Kembali'),
                 ),
                 confirm: ElevatedButton(
                   onPressed: () => Get.toNamed(Routes.LOGIN),
-                  child: const Text('Sign Out'),
+                  child: const Text('Logout'),
                 ),
               );
             },
             child: Row(
               children: const [
                 Text(
-                  'Sign Out',
+                  'Logout',
                   style: TextStyle(
                     color: AppColors.primaryText,
                     fontSize: 18,

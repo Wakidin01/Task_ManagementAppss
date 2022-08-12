@@ -59,14 +59,14 @@ class TaskView extends GetView<TaskController> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: const [
                                 Text(
-                                  'Task Management',
+                                  'Travel Holiday',
                                   style: TextStyle(
                                     fontSize: 20,
                                     color: AppColors.primaryText,
                                   ),
                                 ),
                                 Text(
-                                  'Manage task made easy',
+                                  'Lets Travel with ME and TOGETHER',
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: AppColors.primaryText,
@@ -89,7 +89,7 @@ class TaskView extends GetView<TaskController> {
                                 backgroundColor: Colors.amber,
                                 radius: 25,
                                 foregroundImage: NetworkImage(
-                                    'https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp'),
+                                    'https://i0.wp.com/artforia.com/wp-content/uploads/2017/03/Pria-Tampan-di-Jepang-Harus-Bayar-Pajak-Lebih.jpg'),
                               ),
                             ),
                           ],
@@ -115,7 +115,7 @@ class TaskView extends GetView<TaskController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          'My Task',
+                          'My Holiday',
                           style: TextStyle(
                             color: AppColors.primaryText,
                             fontSize: 30,
@@ -152,7 +152,7 @@ class TaskView extends GetView<TaskController> {
                                         builder: (context, snapshot2) {
                                           if (snapshot2.connectionState ==
                                               ConnectionState.waiting) {
-                                            return const Center(
+                                            return Center(
                                                 child:
                                                     CircularProgressIndicator());
                                           }
@@ -167,6 +167,26 @@ class TaskView extends GetView<TaskController> {
 
                                           return GestureDetector(
                                             onLongPress: () {
+                                              Get.defaultDialog(
+                                                  title: dataTask!['title'],
+                                                  content: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      TextButton.icon(
+                                                          onPressed: () {},
+                                                          icon: Icon(
+                                                              Ionicons.pencil),
+                                                          label:
+                                                              Text('Update')),
+                                                      TextButton.icon(
+                                                          onPressed: () {},
+                                                          icon: Icon(
+                                                              Ionicons.trash),
+                                                          label: Text('Delete'))
+                                                    ],
+                                                  ));
                                               // addEditTask(
                                               //     context: context,
                                               //     type: 'Update',
@@ -188,41 +208,51 @@ class TaskView extends GetView<TaskController> {
                                                   children: [
                                                     Row(
                                                       children: [
-                                                        ListView.builder(
-                                                            padding:
-                                                                EdgeInsets.zero,
-                                                            itemCount:
-                                                                dataUserList
-                                                                    .length,
-                                                            itemBuilder:
-                                                                (context,
-                                                                    index) {
-                                                              return StreamBuilder<
-                                                                      DocumentSnapshot<
-                                                                          Map<String,
-                                                                              dynamic>>>(
-                                                                  stream: AuthCon
-                                                                      .StreamUsers(
-                                                                          dataUserList[
-                                                                              index]),
-                                                                  builder: (context,
-                                                                      snapshot) {
-                                                                    return ClipRRect(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              25),
-                                                                      child:
-                                                                          const CircleAvatar(
-                                                                        backgroundColor:
-                                                                            Colors.amber,
-                                                                        radius:
-                                                                            20,
-                                                                        foregroundImage:
-                                                                            NetworkImage('https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/27/08/jennifer-lawrence.jpg?quality=75&width=982&height=726&auto=webp'),
-                                                                      ),
-                                                                    );
-                                                                  });
-                                                            }),
+                                                        SizedBox(
+                                                          height: 50,
+                                                          child: Expanded(
+                                                            child: ListView
+                                                                .builder(
+                                                                    padding:
+                                                                        EdgeInsets
+                                                                            .zero,
+                                                                    itemCount:
+                                                                        dataUserList
+                                                                            .length,
+                                                                    scrollDirection:
+                                                                        Axis
+                                                                            .horizontal,
+                                                                    shrinkWrap:
+                                                                        true,
+                                                                    physics:
+                                                                        const ScrollPhysics(),
+                                                                    itemBuilder:
+                                                                        (context,
+                                                                            index2) {
+                                                                      return StreamBuilder<
+                                                                              DocumentSnapshot<Map<String, dynamic>>>(
+                                                                          stream: AuthCon.StreamUsers(dataUserList[index2]),
+                                                                          builder: (context, snapshot3) {
+                                                                            if (snapshot3.connectionState ==
+                                                                                ConnectionState.waiting) {
+                                                                              return Center(child: CircularProgressIndicator());
+                                                                            }
+
+                                                                            // data user photo
+                                                                            var dataUserImage =
+                                                                                snapshot3.data!.data();
+                                                                            return ClipRRect(
+                                                                              borderRadius: BorderRadius.circular(25),
+                                                                              child: CircleAvatar(
+                                                                                backgroundColor: Colors.amber,
+                                                                                radius: 20,
+                                                                                foregroundImage: NetworkImage(dataUserImage!['photo']),
+                                                                              ),
+                                                                            );
+                                                                          });
+                                                                    }),
+                                                          ),
+                                                        ),
                                                         const Spacer(),
                                                         Container(
                                                           height: 25,

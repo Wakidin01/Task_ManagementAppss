@@ -23,7 +23,7 @@ class Myfriends extends StatelessWidget {
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   const Text(
-                    'My Friends',
+                    'Teman Terdekat',
                     style: TextStyle(
                       color: AppColors.primaryText,
                       fontSize: 30,
@@ -33,7 +33,7 @@ class Myfriends extends StatelessWidget {
                   GestureDetector(
                     onTap: () => Get.toNamed(Routes.FRIENDS),
                     child: const Text(
-                      'more',
+                      'Lainnya',
                       style: TextStyle(
                         color: AppColors.primaryText,
                         fontSize: 20,

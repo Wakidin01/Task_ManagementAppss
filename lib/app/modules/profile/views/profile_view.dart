@@ -59,14 +59,14 @@ class ProfileView extends GetView<ProfileController> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: const [
                                 Text(
-                                  'Task Management',
+                                  'Travel Holiday',
                                   style: TextStyle(
                                     fontSize: 20,
                                     color: AppColors.primaryText,
                                   ),
                                 ),
                                 Text(
-                                  'Manage task made easy',
+                                  'Lets Travel with ME and TOGETHER',
                                   style: TextStyle(
                                     fontSize: 14,
                                     color: AppColors.primaryText,
@@ -78,23 +78,23 @@ class ProfileView extends GetView<ProfileController> {
                             GestureDetector(
                               onTap: () {
                                 Get.defaultDialog(
-                                  title: 'Sign Out',
+                                  title: 'Logout',
                                   content: const Text(
-                                      'Are you sure want to sign out?'),
+                                      'Apakah anda yakin ingin logout?'),
                                   cancel: ElevatedButton(
                                     onPressed: () => Get.back(),
-                                    child: const Text('Cancel'),
+                                    child: const Text('Batal'),
                                   ),
                                   confirm: ElevatedButton(
                                     onPressed: () => authC.logout(),
-                                    child: const Text('Sign Out'),
+                                    child: const Text('Logout'),
                                   ),
                                 );
                               },
                               child: Row(
                                 children: const [
                                   Text(
-                                    'Sign Out',
+                                    'Logout',
                                     style: TextStyle(
                                       color: AppColors.primaryText,
                                       fontSize: 18,
@@ -135,9 +135,9 @@ class ProfileView extends GetView<ProfileController> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
-                        const profileWidget(),
+                        profileWidget(),
                         const Text(
-                          'My Task',
+                          'My Holiday',
                           style: TextStyle(
                             color: AppColors.primaryText,
                             fontSize: 30,

@@ -61,7 +61,7 @@ class SideBar extends StatelessWidget {
                           height: 5,
                         ),
                         const Text(
-                          'Home',
+                          'Beranda',
                           style: TextStyle(
                               color: AppColors.primaryText, fontSize: 16),
                         ),
@@ -98,7 +98,7 @@ class SideBar extends StatelessWidget {
                           height: 5,
                         ),
                         const Text(
-                          'Task',
+                          'Daftar Wisata',
                           style: TextStyle(
                               color: AppColors.primaryText, fontSize: 16),
                         ),
@@ -135,7 +135,7 @@ class SideBar extends StatelessWidget {
                           height: 5,
                         ),
                         const Text(
-                          'Friends',
+                          'Teman',
                           style: TextStyle(
                               color: AppColors.primaryText, fontSize: 16),
                         ),
@@ -172,7 +172,7 @@ class SideBar extends StatelessWidget {
                           height: 5,
                         ),
                         const Text(
-                          'Profile',
+                          'Profil',
                           style: TextStyle(
                               color: AppColors.primaryText, fontSize: 16),
                         ),

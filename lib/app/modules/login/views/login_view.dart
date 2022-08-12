@@ -42,21 +42,21 @@ class LoginView extends GetView<LoginController> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: const [
                               Text(
-                                'Welcome',
+                                'Selamat Datang',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 70,
                                 ),
                               ),
                               Text(
-                                'Please Sign In',
+                                'Di Travel Holiday',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 30,
                                 ),
                               ),
                               Text(
-                                'Start Journey With Us',
+                                'Mari bersantai bersama kami',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 20,
@@ -85,21 +85,21 @@ class LoginView extends GetView<LoginController> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: const [
                                   Text(
-                                    'Welcome',
+                                    'Selamat Datang',
                                     style: TextStyle(
                                       color: Colors.grey,
                                       fontSize: 40,
                                     ),
                                   ),
                                   Text(
-                                    'Please Sign In',
+                                    'Di Travel Holiday',
                                     style: TextStyle(
                                       color: Colors.grey,
                                       fontSize: 20,
                                     ),
                                   ),
                                   Text(
-                                    'Start Journey With Us',
+                                    'Mari bersantai bersama kami',
                                     style: TextStyle(
                                       color: Colors.grey,
                                       fontSize: 15,

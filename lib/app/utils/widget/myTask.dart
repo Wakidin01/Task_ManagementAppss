@@ -51,19 +51,6 @@ class myTask extends StatelessWidget {
                           ),
                         ),
                         const Spacer(),
-                        Container(
-                          height: 25,
-                          width: 80,
-                          color: AppColors.primaryBg,
-                          child: const Center(
-                            child: Text(
-                              '100 %',
-                              style: TextStyle(
-                                color: AppColors.primaryText,
-                              ),
-                            ),
-                          ),
-                        ),
                       ],
                     ),
                     const Spacer(),
@@ -73,7 +60,7 @@ class myTask extends StatelessWidget {
                       color: AppColors.primaryBg,
                       child: const Center(
                         child: Text(
-                          '10 / 10 Task',
+                          '9 / 10 Rating',
                           style: TextStyle(
                             color: AppColors.primaryText,
                           ),
@@ -81,14 +68,14 @@ class myTask extends StatelessWidget {
                       ),
                     ),
                     const Text(
-                      'Mobile Programing',
+                      'Canda Prambanan',
                       style: TextStyle(
                         color: AppColors.primaryText,
                         fontSize: 20,
                       ),
                     ),
                     const Text(
-                      'Deadline 2 hari lagi',
+                      'IDR 450.000 / orang',
                       style: TextStyle(
                         color: AppColors.primaryText,
                         fontSize: 15,
@@ -128,19 +115,6 @@ class myTask extends StatelessWidget {
                           ),
                         ),
                         const Spacer(),
-                        Container(
-                          height: 25,
-                          width: 80,
-                          color: AppColors.primaryBg,
-                          child: const Center(
-                            child: Text(
-                              '100 %',
-                              style: TextStyle(
-                                color: AppColors.primaryText,
-                              ),
-                            ),
-                          ),
-                        ),
                       ],
                     ),
                     const Spacer(),
@@ -150,7 +124,7 @@ class myTask extends StatelessWidget {
                       color: AppColors.primaryBg,
                       child: const Center(
                         child: Text(
-                          '10 / 10 Task',
+                          '10 / 10 Rating',
                           style: TextStyle(
                             color: AppColors.primaryText,
                           ),
@@ -158,14 +132,14 @@ class myTask extends StatelessWidget {
                       ),
                     ),
                     const Text(
-                      'Mobile Programing',
+                      'Candi Borobudur',
                       style: TextStyle(
                         color: AppColors.primaryText,
                         fontSize: 20,
                       ),
                     ),
                     const Text(
-                      'Deadline 2 hari lagi',
+                      'IDR 500.000 / orang',
                       style: TextStyle(
                         color: AppColors.primaryText,
                         fontSize: 15,
@@ -205,19 +179,6 @@ class myTask extends StatelessWidget {
                           ),
                         ),
                         const Spacer(),
-                        Container(
-                          height: 25,
-                          width: 80,
-                          color: AppColors.primaryBg,
-                          child: const Center(
-                            child: Text(
-                              '100 %',
-                              style: TextStyle(
-                                color: AppColors.primaryText,
-                              ),
-                            ),
-                          ),
-                        ),
                       ],
                     ),
                     const Spacer(),
@@ -227,7 +188,7 @@ class myTask extends StatelessWidget {
                       color: AppColors.primaryBg,
                       child: const Center(
                         child: Text(
-                          '10 / 10 Task',
+                          '10 / 10 Rating',
                           style: TextStyle(
                             color: AppColors.primaryText,
                           ),
@@ -235,14 +196,14 @@ class myTask extends StatelessWidget {
                       ),
                     ),
                     const Text(
-                      'Mobile Programing',
+                      'Bali',
                       style: TextStyle(
                         color: AppColors.primaryText,
                         fontSize: 20,
                       ),
                     ),
                     const Text(
-                      'Deadline 2 hari lagi',
+                      'IDR 1.000.000 / orang',
                       style: TextStyle(
                         color: AppColors.primaryText,
                         fontSize: 15,
@@ -282,19 +243,6 @@ class myTask extends StatelessWidget {
                           ),
                         ),
                         const Spacer(),
-                        Container(
-                          height: 25,
-                          width: 80,
-                          color: AppColors.primaryBg,
-                          child: const Center(
-                            child: Text(
-                              '100 %',
-                              style: TextStyle(
-                                color: AppColors.primaryText,
-                              ),
-                            ),
-                          ),
-                        ),
                       ],
                     ),
                     const Spacer(),
@@ -304,7 +252,7 @@ class myTask extends StatelessWidget {
                       color: AppColors.primaryBg,
                       child: const Center(
                         child: Text(
-                          '10 / 10 Task',
+                          '8,5 / 10 Rating',
                           style: TextStyle(
                             color: AppColors.primaryText,
                           ),
@@ -312,14 +260,14 @@ class myTask extends StatelessWidget {
                       ),
                     ),
                     const Text(
-                      'Mobile Programing',
+                      'Pantai Kuta',
                       style: TextStyle(
                         color: AppColors.primaryText,
                         fontSize: 20,
                       ),
                     ),
                     const Text(
-                      'Deadline 2 hari lagi',
+                      'IDR 700.000 / orang',
                       style: TextStyle(
                         color: AppColors.primaryText,
                         fontSize: 15,
